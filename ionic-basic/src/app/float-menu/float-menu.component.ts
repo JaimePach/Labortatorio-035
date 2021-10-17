@@ -7,14 +7,22 @@ import { Router } from '@angular/router';
   styleUrls: ['./float-menu.component.scss'],
 })
 export class FloatMenuComponent implements OnInit {
-  [x: string]: any;
+  
   datosMenu: MenuElementsInterface[] =[
+    {nombre: 'Inicio',enlace:'/Login',
+    icono:'Log-in'},
     {nombre: 'Alumnos',enlace:'/alumnos',
     icono:'school-outline'},
     {nombre: 'Receteas',enlace:'/recetas',
     icono:'restaurant-outline'},
     {nombre: 'Tabs',enlace:'/tabs',
-    icono:'folder-outline'}
+    icono:'folder-outline'},
+    {nombre: 'home' ,enlace: '/home',
+    icono: 'home'},
+    {nombre: 'Turismo',enlace: '/destinos',
+     icono: 'bus' },
+     {nombre: 'Salir',enlace:'/home',
+     icono:'log-out'}
   ];
  
   constructor(private router:Router) { }

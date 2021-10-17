@@ -21,6 +21,7 @@ export class LoginPage implements OnInit {
   ngOnInit() {
     this.buildForm();
   }
+  
   async onLogin(){
     const user = await this.autSvc.onLogin(this.user);
     if(user != null && user.code == undefined){

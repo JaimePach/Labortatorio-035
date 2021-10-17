@@ -5,39 +5,44 @@
  </ion-header>
   
  <ion-content padding>
-   <form [formGroup]="ionicForm" (ngSubmit)="submitForm()" novalidate>
+  <form [formGroup]="ionicForm" (ngSubmit)="submitForm()" novalidate>
     <ion-item>
-      <ion-label>
-      Email
-      </ion-label>
-      <ion-input type="emial" formControlName="email"></ion-input>
-      <ion-text color="danger" *ngif="hasError('email','emial')">
-        
-        <h5>Debe ser un correo Valido</h5>
+        <ion-label>
+            Email
+        </ion-label>
+        <ion-input type="emial" formControlName="email"></ion-input>
+        <ion-text color="danger" *ngIf="hasError('email','email')">
 
-      </ion-text>
-      <ion-text color="danger" *ngIf="hasError('email','emial')">
-        <h5>Campo Requerido</h5>
+            <h5>Debe ser un correo valido</h5>
+
         </ion-text>
-      </ion-item>
 
-      <ion-item>
-      <ion-label>
-      Password
-      </ion-label>
-      <ion-input type="password" formControlName="password"></ion-input>
-      <ion-text color="danger" *ngIf="ionicForm.valid && ionicForm.controls['password'].touched && !hasError('password')">
-        
-         <h5>Puede aceptar maximo 6 caracteres</h5>
+        <ion-text color="danger" *ngIf="hasError('email','required')">
 
-      </ion-text>
-      </ion-item>
-      <ion-item-divider>
-      <ion-button size="larger" [disabled]="!(ionicForm.valid)" type="submit">Login</ion-button>
-       
-      <ion-button size="larger" routerLink="/register">New</ion-button>
-      </ion-item-divider>
+            <h5>Campo requerido</h5>
 
-   </form>
-  
+        </ion-text>
+    </ion-item>
+    <ion-item>
+        <ion-label>
+            Password
+        </ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
+        <ion-text color="danger" *ngIf="!ionicForm.valid && ionicForm.controls['password'].touched && !hasError('password','required')">
+
+            <h5>Maximo 6 caracteres</h5>
+
+        </ion-text>
+
+        <ion-text color="danger" *ngIf="hasError('password','required')">
+
+            <h5>Campo requerido</h5>
+
+        </ion-text>
+    </ion-item>
+    <ion-item-divider>
+        <ion-button size="larger" [disabled]="!(ionicForm.valid)" type="submit">Login</ion-button>
+        <ion-button size="larger" routerLink="/register">New</ion-button>
+    </ion-item-divider>
+</form>
  </ion-content>
