@@ -52,7 +52,7 @@ const routes: Routes = [
     loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule)
   },
   {
-    path: 'destinos',canActivate: [AuthGuard],
+    path: 'destinos',
     loadChildren: () => import('./destinos/destinos.module').then( m => m.DestinosPageModule)
   },
 
